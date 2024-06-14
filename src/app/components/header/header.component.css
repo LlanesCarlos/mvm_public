@@ -1,0 +1,57 @@
+.search-bar{
+  border: 1px solid #dedede;
+  background: #FFF;
+  height: 45px;
+  font-size: 16px;
+}
+
+.search-bar-header{
+  width: 680px;
+}
+
+.navbar a .bi, .navbar a .fa {
+  margin-bottom: 5px;
+}
+
+.navbar a span {
+  font-size: 0.875rem; /* Tamaño de fuente ajustado */
+}
+
+.header-icon{
+  font-size: 1.5em;
+
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-item {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
