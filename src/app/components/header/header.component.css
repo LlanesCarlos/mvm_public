@@ -55,3 +55,7 @@
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
+.header{
+  position:sticky;
+}
