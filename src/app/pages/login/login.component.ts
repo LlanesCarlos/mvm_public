@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/components/alert/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,9 @@ export class LoginComponent {
   email: any;
   pass:any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private alertService: AlertService
+  ) {}
 
 
   login() {
@@ -19,7 +22,7 @@ export class LoginComponent {
     if (this.email === 'alebenitez@gmail.com' && this.pass === '1234') {
       this.router.navigate(['/home']); // Reemplaza '/ruta-especifica' con la ruta a la que deseas redirigir
     } else {
-      alert('Correo electrónico o contraseña incorrectos');
+      this.alertService.error('Correo electrónico o contraseña incorrectos');
     }
   }
 

@@ -1,0 +1,10 @@
+.floating-alerts {
+  position: absolute;
+  top: -30px; /* Ajusta este valor para dar más espacio entre el header y el alert */
+  width: 100%;
+  z-index: 1050;
+}
+
+.alert {
+  margin-bottom: 20px;
+}

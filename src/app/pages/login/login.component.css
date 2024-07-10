@@ -1,5 +1,4 @@
-
-.main-container{
+.main-container {
   height: 100%;
   margin: 0;
   display: flex;
@@ -7,22 +6,28 @@
   justify-content: center;
   background-color: #f8f9fa;
   padding: 2.5em;
+  position: relative;
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
 }
 
 .login-container {
   width: 100%;
-  max-width: 700px;
   padding: 20px;
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* border: 2px solid gray; modificar color dp */
+  margin-top: 30px;
 }
 
 .login-container h2 {
-    margin-bottom: 20px;
-    border-bottom: 2px solid gray;
-    padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid gray;
+  padding-bottom: 20px;
 }
 
 .form-control {
@@ -31,26 +36,26 @@
 
 .btn-primary {
   border-radius: 5px;
-} 
+}
 
 .login-label{
-   margin: 8px 0px;
+  margin: 8px 0px;
 }
 
 .divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
 .divider hr.line {
-    flex: 1;
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 0 10px;
+  flex: 1;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0 10px;
 }
 
 .divider span {
-    padding: 0 10px;
-    color: #999;
+  padding: 0 10px;
+  color: #999;
 }
