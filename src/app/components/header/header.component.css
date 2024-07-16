@@ -56,6 +56,39 @@
   display: block;
 }
 
-.header{
-  position:sticky;
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff; /* Cambiar al color de fondo deseado */
+  border-bottom: 1px solid #dddddd; /* Línea separadora opcional */
+  width: 100%;
+}
+.navbar {
+  padding: 10px 0; /* Espaciado interno del header */
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Tamaño de la fuente del logo */
+}
+
+.navbar-nav {
+  margin-left: auto; /* Alineación a la derecha */
+}
+
+.navbar-nav .nav-link {
+  padding: 0 15px; /* Espaciado entre elementos */
+  font-size: 1rem; /* Tamaño de la fuente de los enlaces */
+  color: #333333; /* Color de texto de los enlaces */
+}
+
+@media (max-width: 991px) {
+  /* Estilos para pantallas medianas y pequeñas */
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+  
+  .navbar-toggler {
+    margin-right: 15px; /* Ajusta el espacio del toggle si es necesario */
+  }
 }

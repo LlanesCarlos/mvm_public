@@ -11,6 +11,8 @@ export class LoginComponent {
 
   email: any;
   pass:any;
+  user = "admin";
+  password = "admin";
 
   constructor(private router: Router,
     private alertService: AlertService
@@ -19,8 +21,8 @@ export class LoginComponent {
 
   login() {
     console.log(this.email, this.pass)
-    if (this.email === 'alebenitez@gmail.com' && this.pass === '1234') {
-      this.router.navigate(['/home']); // Reemplaza '/ruta-especifica' con la ruta a la que deseas redirigir
+    if (this.email === this.user && this.pass === this.password) {
+      this.router.navigate(['/home']); 
     } else {
       this.alertService.error('Correo electrónico o contraseña incorrectos');
     }
