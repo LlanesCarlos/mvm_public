@@ -3,10 +3,6 @@
 @import "primeng/resources/primeng.css";
 @import "/node_modules/primeflex/primeflex.css" */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /*** Spinner Start ***/
 #spinner {
     opacity: 0;
