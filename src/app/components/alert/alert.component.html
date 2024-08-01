@@ -1,0 +1,5 @@
+<div class="floating-alerts">
+  <div *ngFor="let alert of alerts" class="alert" [ngClass]="{'alert-success': alert.type === 'success', 'alert-danger': alert.type === 'error'}">
+    {{alert.text}}
+  </div>
+</div>
