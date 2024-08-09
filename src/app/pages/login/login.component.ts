@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/components/alert/alert.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,23 +10,25 @@ import { AlertService } from 'src/app/components/alert/alert.service';
 })
 export class LoginComponent {
 
-  email: any;
-  pass:any;
-  user = "admin";
-  password = "admin";
+  credentials = { email: '', password: '' };
+  errorMessage: string | null = null;
 
   constructor(private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private authService: AuthService
   ) {}
 
 
-  login() {
-    console.log(this.email, this.pass)
-    if (this.email === this.user && this.pass === this.password) {
-      this.router.navigate(['/home']); 
-    } else {
-      this.alertService.error('Correo electrónico o contraseña incorrectos');
-    }
+  login(): void {
+    this.authService.login(this.credentials).subscribe(
+      (response) => {
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        this.alertService.error('Email o contraseña incorrectos');
+      }
+    );
   }
 
 }

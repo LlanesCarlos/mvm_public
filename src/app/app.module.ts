@@ -9,6 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './components/alert/alert.component';
+import { ProductsComponent } from './components/products/products.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { AlertComponent } from './components/alert/alert.component';
     HomeComponent,
     FooterComponent,
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
