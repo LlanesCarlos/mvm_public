@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './components/alert/alert.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SidebarComponent } from './components/sidebar-filter/sidebar-filter.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     LoginComponent,
     AlertComponent,
-    ProductsComponent
+    ProductsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

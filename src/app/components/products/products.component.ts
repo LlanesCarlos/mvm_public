@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { CategoriesService } from 'src/app/services/categories.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -7,19 +9,45 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
 
-  product: any;
   products: any[] = [];
+  selectedCategories: number[] = [];
+  priceMin: number = 0;
+  priceMax: number = 0;
 
-  constructor(private productService: ProductsService) { }
+  constructor(
+    private categoriesService: CategoriesService,
+    private route: ActivatedRoute,
+    private productsService: ProductsService
+  ) { }
 
   ngOnInit() {
-    this.getAllProducts();
+    this.route.params.subscribe(params => {
+      const categoryId = +params['id'];
+      if (categoryId) {
+        this.getProductsByCategory(categoryId);
+      } else {
+        this.getAllProducts();  // Cargar todos los productos si no hay categoría seleccionada
+      }
+    });
+  }
+
+
+
+  getProductsByCategory(categoryId: number) {
+    this.categoriesService.getCategoryProducts(categoryId).subscribe(
+      products => {
+        this.products = products;
+      },
+      error => {
+        console.error('Error fetching products by category', error);
+      }
+    );
   }
 
   getAllProducts() {
-    this.productService.getAllProducts().subscribe(
+    this.productsService.getAllProducts().subscribe(
       data => {
         this.products = data;
         console.log(this.products);
@@ -28,17 +56,25 @@ export class ProductsComponent {
         console.error('Error fetching products', error);
       }
     );
+    
   }
 
-  getProduct(id: number) {
-    this.productService.getProductById(id).subscribe(
+  onFiltersApplied() {
+    this.productsService.getFilteredProducts(this.selectedCategories, this.priceMin, this.priceMax).subscribe(
       data => {
-        this.product = data;
-        console.log(this.product);
+        this.products = data;
       },
       error => {
-        console.error('Error fetching product', error);
+        console.error('Error fetching filtered products', error);
       }
     );
   }
+
+  handleFilters(filters: any) {
+    this.selectedCategories = filters.categories;
+    this.priceMin = filters.priceRange.min;
+    this.priceMax = filters.priceRange.max;
+    this.onFiltersApplied();
+  }
+ 
 }

@@ -5,9 +5,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProductsComponent } from './components/products/products.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'products/:id', component: ProductsComponent },
 ];
 
 @NgModule({
