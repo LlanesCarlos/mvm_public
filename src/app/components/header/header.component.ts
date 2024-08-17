@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AlertService } from '../alert/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -13,14 +14,19 @@ export class HeaderComponent implements OnInit{
 
   userProfile: any;
   categories: any[] = []; 
+  cartItemCount: number = 0;
 
   constructor(private router: Router,
     private alertService: AlertService,
     private authService: AuthService,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private cartService: CartService
   ) { }
   ngOnInit(): void {
-    this.getCategories()
+    this.getCategories();
+    this.cartService.cart$.subscribe(cart => {
+      this.cartItemCount = cart.length;
+    });
   /*   if (this.authService.isAuthenticated()) {
       this.authService.getProfile().subscribe(
         (profile) => {
@@ -42,6 +48,10 @@ export class HeaderComponent implements OnInit{
         console.error('Error al obtener las categorías', error);
       }
     );
+  }
+  
+  goToCart() {
+    this.router.navigate(['/cart']);
   }
 
 }

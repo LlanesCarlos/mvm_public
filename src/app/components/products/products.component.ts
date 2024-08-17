@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { CartService } from 'src/app/services/cart.service';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -19,7 +20,8 @@ export class ProductsComponent implements OnInit {
   constructor(
     private categoriesService: CategoriesService,
     private route: ActivatedRoute,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
@@ -75,6 +77,10 @@ export class ProductsComponent implements OnInit {
     this.priceMin = filters.priceRange.min;
     this.priceMax = filters.priceRange.max;
     this.onFiltersApplied();
+  }
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
   }
  
 }

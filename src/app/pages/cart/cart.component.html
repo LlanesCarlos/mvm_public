@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="container p-5">
+    <div class="cart">
+        <h3>Your Cart</h3>
+        <div *ngIf="cartItems.length === 0">
+            <p>Your cart is empty.</p>
+        </div>
+        <div *ngFor="let item of cartItems" class="cart-item">
+            <img [src]="item.images[0]" alt="{{ item.title }}" class="cart-item-image">
+            <div class="cart-item-details">
+                <h5>{{ item.title }}</h5>
+                <p>{{ item.price }} $</p>
+            </div>
+        </div>
+        <div class="cart-total">
+            <h5>Total: {{ getTotalPrice() }} $</h5>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

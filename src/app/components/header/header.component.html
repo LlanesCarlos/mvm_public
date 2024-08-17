@@ -39,8 +39,14 @@
           </form>
           <div class="d-flex align-items-center">
             <div class="text-center me-4">
-              <a href="#" class="d-flex flex-column align-items-center text-decoration-none">
+              <a (click)="goToCart()" class="position-relative d-flex flex-column align-items-center text-decoration-none"
+                style="cursor: pointer;">
                 <i class="bi bi-cart header-icon"></i>
+                <span
+                  class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                  style="top: -5px; left: 15px; height: 20px; min-width: 20px;">
+                  {{ cartItemCount }}
+                </span>
               </a>
             </div>
             <div class="text-center me-4">
