@@ -8,6 +8,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
   cartItems: any[] = [];
+  couponCode: string = '';
 
   constructor(private cartService: CartService) { }
 
@@ -18,6 +19,31 @@ export class CartComponent implements OnInit {
   }
 
   getTotalPrice(): number {
-    return this.cartItems.reduce((total, item) => total + item.price, 0);
+    return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
+
+  increaseQuantity(item: any): void {
+    item.quantity += 1;
+    this.cartService.updateCart(this.cartItems);
+  }
+
+  decreaseQuantity(item: any): void {
+    if (item.quantity > 1) {
+      item.quantity -= 1;
+      this.cartService.updateCart(this.cartItems);
+    }
+  }
+
+  removeItem(item: any): void {
+    this.cartItems = this.cartItems.filter(i => i !== item);
+    this.cartService.updateCart(this.cartItems);
+  }
+
+  applyCoupon(): void {
+    // Implement coupon logic here
+  }
+
+  proceedToCheckout(): void {
+    // Implement checkout logic here
   }
 }
