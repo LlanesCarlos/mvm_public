@@ -1,0 +1,129 @@
+<app-header></app-header>
+<div class="container p-5">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link step active" href="#">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Entrega</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link step" href="#">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Facturación</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link step" href="#">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Pago</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link step" href="#">
+                            <span class="step-number">4</span>
+                            <span class="step-label">Confirmar</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- Columna izquierda: Datos de entrega -->
+        <div class="col-md-8">
+            <h3>Datos de entrega</h3>
+            <form>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="deliveryOption" id="pickupOption" checked>
+                    <label class="form-check-label" for="pickupOption">
+                        <i class="fas fa-store"></i> Retirar del local: El proveedor se va a poner en contacto contigo
+                        cuando el producto esté listo para retirar
+                    </label>
+                </div>
+
+                <!-- Lista de tiendas -->
+                <div class="row my-3 mx-4">
+                    <div class="col-2">
+                        <img src="https://www.contimarket.com/assets/images/thumbs/643fefec030872995420d6cd_america-shop.jpeg" class="img-fluid rounded" alt="Tienda 1">
+                    </div>
+                    <div class="col-10">
+                        <p class="mb-1"><strong>Tienda</strong></p>
+                        <p>AMERICA SHOP</p>
+                    </div>
+                </div>
+
+                <div class="row mb-3 mx-4">
+                    <div class="col-2">
+                        <img src="https://www.contimarket.com/assets/images/thumbs/6500d5254169384ef800f10d_diez-y-nueve-store.jpeg" class="img-fluid rounded" alt="Tienda 2">
+                    </div>
+                    <div class="col-10">
+                        <p class="mb-1"><strong>Tienda</strong></p>
+                        <p>DIEZ Y NUEVE STORE</p>
+                    </div>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="deliveryOption" id="deliveryOption">
+                    <label class="form-check-label" for="deliveryOption">
+                        <i class="fas fa-shipping-fast"></i> Entrega a domicilio (Delivery)
+                    </label>
+                </div>
+
+                <button type="button" class="btn btn-primary mt-4">Continuar</button>
+            </form>
+        </div>
+
+        <!-- Columna derecha: Resumen de compra -->
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h5 class="card-title">Resumen de compra</h5>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <img src="https://www.contimarket.com/assets/images/thumbs/66bca5710e2e8208095a3e52_auricular-inalmbrico-havit-cat-ears_80.png" alt="Auricular Inalámbrico Havit Cat Ears"
+                            class="product-thumbnail" style="width: 50px; height: 50px; border-radius: 8px;">
+                        <div class="ms-3 flex-grow-1">
+                            <h6 class="my-0">Auricular Inalámbrico Havit Cat Ears</h6>
+                            <small class="text-muted">Cantidad: 1</small>
+                        </div>
+                        <span>Gs. 150.000</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <img src="https://www.contimarket.com/assets/images/thumbs/659684c599187a5a6c9688db_botella-stanley-kids-celeste_80.png" alt="Botella stanley kids celeste" class="product-thumbnail"
+                            style="width: 50px; height: 50px; border-radius: 8px;">
+                        <div class="ms-3 flex-grow-1">
+                            <h6 class="my-0">Botella stanley kids celeste</h6>
+                            <small class="text-muted">Cantidad: 1</small>
+                        </div>
+                        <span>Gs. 302.951</span>
+                    </li>
+                </ul>
+                <div class="d-flex justify-content-between">
+                    <span>Sub Total:</span>
+                    <strong>Gs. 696.551</strong>
+                </div>
+                <div class="d-flex justify-content-between text-success">
+                    <span>Descuento Tarjeta:</span>
+                    <strong>Gs. -106.551</strong>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span>Envío:</span>
+                    <strong>A confirmar</strong>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <h5>Total a pagar:</h5>
+                    <h5>Gs. 590.000</h5>
+                </div>
+                <button type="button" class="btn btn-success w-100 mt-3">A confirmar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

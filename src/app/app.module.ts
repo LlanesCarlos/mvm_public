@@ -13,6 +13,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './components/sidebar-filter/sidebar-filter.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CartComponent } from './pages/cart/cart.component';
     AlertComponent,
     ProductsComponent,
     SidebarComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
