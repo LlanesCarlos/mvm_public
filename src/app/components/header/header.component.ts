@@ -54,4 +54,8 @@ export class HeaderComponent implements OnInit{
     this.router.navigate(['/cart']);
   }
 
+  logout() {
+    this.authService.logout();
+  }
+
 }
