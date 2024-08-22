@@ -54,8 +54,9 @@ export class HeaderComponent implements OnInit{
     this.router.navigate(['/cart']);
   }
 
-  logout() {
-    this.authService.logout();
+  logout(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 
 }

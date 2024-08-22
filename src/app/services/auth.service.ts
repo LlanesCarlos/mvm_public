@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3001/api/v1/auth/login';
+  private apiUrl = 'http://localhost:3001/api/v1/auth';
 
   constructor(private http: HttpClient,
     private router: Router
   ) { }
 
   login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post<any>(this.apiUrl, credentials);
+    return this.http.post<any>(`${this.apiUrl}/login`, credentials);
   }
 
   getProfile(): Observable<any> {

@@ -15,6 +15,7 @@ import { SidebarComponent } from './components/sidebar-filter/sidebar-filter.com
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccountComponent } from './pages/account/account.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SidebarComponent,
     CartComponent,
     CheckoutComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,

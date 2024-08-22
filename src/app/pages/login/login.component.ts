@@ -22,7 +22,7 @@ export class LoginComponent {
   login(): void {
     this.authService.login(this.credentials).subscribe(
       (response) => {
-        localStorage.setItem('token', response.token);
+        localStorage.setItem('token', response.access_token);
         this.router.navigate(['/home']);
       },
       (error) => {
