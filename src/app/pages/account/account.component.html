@@ -34,11 +34,11 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="nombre" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" value="Jan">
+                        <input type="text" class="form-control" id="nombre" value="{{userProfile?.name}}">
                     </div>
                     <div class="col">
                         <label for="apellido" class="form-label">Apellido:</label>
-                        <input type="text" class="form-control" id="apellido" value="Arlet">
+                        <input type="text" class="form-control" id="apellido" value="no data">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -48,7 +48,7 @@
                     </div>
                     <div class="col">
                         <label for="email" class="form-label">Email: <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" id="email" value="janarlet99@gmail.com">
+                        <input type="email" class="form-control" id="email" value={{userProfile?.email}}>
                     </div>
                 </div>
                 <div class="row mb-3">

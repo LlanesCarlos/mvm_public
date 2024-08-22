@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.mode';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,15 +9,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AccountComponent implements OnInit {
 
-  //userProfile: any;
-  userProfile = {
-    firstName: 'Maria',
-    lastName: 'Lopez',
-    phone: '',
-    email: 'maria@gmail.com',
-    companyName: '',
-    ruc: ''
-  };
+  userProfile: User;
+  // userProfile = {
+  //   name: 'Maria',
+  //   lastname: 'Lopez',
+  //   phone: '',
+  //   email: 'maria@gmail.com',
+  //   companyName: '',
+  //   ruc: '',
+  //   id:''
+  // };
   seccionActiva: string = 'datos-personales'; 
 
   constructor(private authService: AuthService) { }
