@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user.mode';
+import { User } from 'src/app/models/user.model';
+import { AddressService } from 'src/app/services/address.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,33 +11,32 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AccountComponent implements OnInit {
 
   userProfile: User;
-  // userProfile = {
-  //   name: 'Maria',
-  //   lastname: 'Lopez',
-  //   phone: '',
-  //   email: 'maria@gmail.com',
-  //   companyName: '',
-  //   ruc: '',
-  //   id:''
-  // };
+  addresses: any[] = [];
+  userId: any;
   seccionActiva: string = 'datos-personales'; 
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    private addressService: AddressService
+  ) { }
 
-  ngOnInit(): void {
-    this.loadUserProfile();
+  async ngOnInit() {
+    await this.loadUserProfile();
+    this.getUserAddresses();
   }
 
-  loadUserProfile(): void {
-    this.authService.getProfile().subscribe(
-      (profile) => {
-        this.userProfile = profile;
-        console.log(this.userProfile)
-      },
-      (error) => {
-        console.error('Error al obtener el perfil del usuario', error);
-      }
-    );
+  loadUserProfile() {
+    return new Promise((resolve, reject) => {
+      this.authService.getProfile().subscribe(
+        (profile) => {
+          this.userProfile = profile;
+          this.userId = this.userProfile.id;
+          resolve(this.userId);
+        },
+        (error) => {
+          console.error('Error al obtener el perfil del usuario', error);
+        }
+      );
+    });
   }
   saveProfile(): void {
     console.log('Perfil guardado:', this.userProfile);
@@ -44,5 +44,19 @@ export class AccountComponent implements OnInit {
 
   mostrarSeccion(seccion: string): void {
     this.seccionActiva = seccion;
+  }
+
+  getUserAddresses() {
+    // return new Promise((resolve, reject) => { 
+      this.addressService.getUserAddresses(this.userId).subscribe(
+        (data: any) => {
+          this.addresses = data;
+        },
+        (error) => {
+          console.error('Error al obtener las direcciones:', error);
+        }
+      );
+    //});
+    
   }
 }

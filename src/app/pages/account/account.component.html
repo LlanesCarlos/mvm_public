@@ -38,13 +38,13 @@
                     </div>
                     <div class="col">
                         <label for="apellido" class="form-label">Apellido:</label>
-                        <input type="text" class="form-control" id="apellido" value="no data">
+                        <input type="text" class="form-control" id="apellido" value="{{userProfile?.lastname}}">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="telefono" class="form-label">Teléfono: <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="telefono">
+                        <input type="text" class="form-control" id="telefono" value="{{userProfile?.cellphone}}">
                     </div>
                     <div class="col">
                         <label for="email" class="form-label">Email: <span class="text-danger">*</span></label>
@@ -59,7 +59,7 @@
                     <div class="col">
                         <label for="ruc" class="form-label">RUC / Cédula de identidad: <span
                                 class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="ruc">
+                        <input type="text" class="form-control" id="ruc" value="{{userProfile?.ci}}">
                     </div>
                 </div>
                 <div class="text-center">
@@ -69,17 +69,33 @@
         </div>
 
         <!-- Sección: Mis direcciones -->
-        <div class="col-md-7" *ngIf="seccionActiva === 'mis-direcciones'">
+        <div class="col-md-9" *ngIf="addresses.length > 0; else sinDirecciones">
             <h2>Mis direcciones</h2>
             <div class="d-flex justify-content-between mb-3">
                 <button class="btn btn-primary">
                     <i class="bi bi-plus-circle"></i> Añadir nuevo
                 </button>
             </div>
-            <div class="p-3 bg-light border rounded">
-                <p>Sin direcciones</p>
+            <div *ngFor="let address of addresses" class="p-3 bg-light border rounded mb-3">
+                <p>{{ address.address }}, {{ address.city }}, {{ address.country }}</p>
+                <p>{{ address.zipCode }}</p>
+                <button class="btn btn-outline-primary">Editar</button>
+                <button class="btn btn-outline-danger">Eliminar</button>
             </div>
         </div>
+        <ng-template #sinDirecciones>
+            <div class="col-md-9">
+                <h2>Mis direcciones</h2>
+                <div class="d-flex justify-content-between mb-3">
+                    <button class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Añadir nuevo
+                    </button>
+                </div>
+                <div class="p-3 bg-light border rounded">
+                    <p>Sin direcciones</p>
+                </div>
+            </div>
+        </ng-template>
 
         <!-- Sección: Mis pedidos -->
         <div class="col-md-7" *ngIf="seccionActiva === 'mis-pedidos'">
