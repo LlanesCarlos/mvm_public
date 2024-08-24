@@ -16,6 +16,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountComponent } from './pages/account/account.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AccountComponent } from './pages/account/account.component';
     CartComponent,
     CheckoutComponent,
     AccountComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
