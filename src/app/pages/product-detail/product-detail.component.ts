@@ -11,7 +11,7 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  product: Product | undefined;
+  product: any | undefined;
   categoryName: string | undefined;
 
   constructor(
@@ -28,7 +28,7 @@ export class ProductDetailComponent implements OnInit {
         this.productsService.getProductById(productId).subscribe(
           product => {
             this.product = product;
-            this.loadCategoryName(product.categoryId); 
+            //his.loadCategoryName(product.categoryId); 
           },
           error => {
             console.error('Error fetching product details', error);
@@ -54,4 +54,13 @@ export class ProductDetailComponent implements OnInit {
       this.cartService.addToCart(product);
     }
   }
+
+  changeMainImage(imageUrl: string) {
+    if (this.product && Array.isArray(this.product.images)) {
+      const updatedImages = [imageUrl, ...this.product.images.filter(img => img !== imageUrl)];
+      this.product.images = updatedImages;
+    }
+  }
+
+
 }
