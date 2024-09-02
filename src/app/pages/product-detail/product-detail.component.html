@@ -12,21 +12,33 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="product-info">
-                <h2>{{ product?.title }}</h2>
-                <div class="price mt-3">
-                    <p class="discounted-price"><span>{{ product?.price }} $</span></p>
-                    <!-- Puedes agregar precio original si lo tienes -->
-                    <!-- <p class="list-price"><span>{{ product?.originalPrice }} $</span></p> -->
-                </div>
-                <p class="mt-3"><strong>Category:</strong> {{ categoryName }}</p>
-                <p><strong>Description:</strong> {{ product?.description }}</p>
-                <div class="add-to-cart mt-4">
-                    <button class="btn btn-primary w-100" (click)="addToCart(product)">
-                        <i class="fa fa-shopping-bag me-2"></i> Agregar al carrito
-                    </button>
-                </div>
+        <div class="product-info">
+            <h2>{{ product?.title }}</h2>
+            <div class="price mt-3">
+                <p class="discounted-price"><span>{{ product?.price }} $</span></p>
             </div>
+            <p class="mt-3"><strong>Category:</strong> {{ categoryName }}</p>
+            <p><strong>Description:</strong> {{ product?.description }}</p>
+        
+            <!-- Contenedor de los botones en fila -->
+            <div class="d-flex align-items-center mt-4">
+                <div class="me-2">
+                    <label for="quantity" class="me-2">Quantity:</label>
+                    <input type="number" id="quantity" [(ngModel)]="quantity" class="form-control" min="1" value="1">
+                </div>
+            <!-- Pasando un argumento a toggleFavorite -->
+        <button class="btn btn-outline-secondary me-2" (click)="toggleFavorite(product)">
+            <i class="fas" [ngClass]="{'fa-heart': isFavorite, 'far fa-heart': !isFavorite}"></i>
+        </button>
+            
+            <!-- Pasando solo el producto a addToCart -->
+            <button class="btn btn-success" (click)="addToCart(product, quantity)">
+                <i class="fa fa-shopping-bag me-2"></i> Agregar al carrito
+            </button>
+            </div>
+
+        </div>
+
         </div>
     </div>
 </div>

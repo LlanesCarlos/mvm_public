@@ -13,6 +13,8 @@ import { Product } from 'src/app/models/product.model';
 export class ProductDetailComponent implements OnInit {
   product: any | undefined;
   categoryName: string | undefined;
+  quantity: number = 1;
+  isFavorite: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -49,9 +51,10 @@ export class ProductDetailComponent implements OnInit {
     );
   }
 
-  addToCart(product: Product | undefined) {
+  addToCart(product: Product, quantity: number) {
     if (product) {
-      this.cartService.addToCart(product);
+      const item = { ...product, quantity: this.quantity };
+      this.cartService.addToCart(item);
     }
   }
 
@@ -61,6 +64,18 @@ export class ProductDetailComponent implements OnInit {
       this.product.images = updatedImages;
     }
   }
-
+  
+  toggleFavorite(product: Product | undefined) {
+    if (product) {
+      this.isFavorite = !this.isFavorite;
+      if (this.isFavorite) {
+        // Lógica para agregar a favoritos
+        console.log(`${product.title} added to favorites`);
+      } else {
+        // Lógica para remover de favoritos
+        console.log(`${product.title} removed from favorites`);
+      }
+    }
+  }
 
 }
