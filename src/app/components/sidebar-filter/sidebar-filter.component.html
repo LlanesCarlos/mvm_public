@@ -1,0 +1,23 @@
+<div class="sidebar mt-5">
+    <h4>Filtros</h4>
+
+    <!-- Filtro por categoría -->
+    <div>
+        <h5>Categoría</h5>
+        <ul>
+            <li *ngFor="let category of categories">
+                <input type="checkbox" (change)="onCategoryChange(category.id)">
+                {{ category.name }}
+            </li>
+        </ul>
+    </div>
+
+    <!-- Filtro por rango de precios -->
+    <div>
+        <h5>Rango de precios</h5>
+        <input type="number" [(ngModel)]="priceMin" placeholder="Min">
+        <input type="number" [(ngModel)]="priceMax" placeholder="Max">
+    </div>
+
+    <button (click)="onFiltersApplied()">Aplicar filtros</button>
+</div>

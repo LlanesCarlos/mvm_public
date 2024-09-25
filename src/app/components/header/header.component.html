@@ -8,9 +8,25 @@
         </button>
         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Categorías</a>
+            <!-- Dropdown start -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Categorías
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li *ngFor="let category of categories">
+                  <a class="dropdown-item" [routerLink]="['/products', category.id]">{{ category.name }}</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Más categorías</a>
+                </li>
+              </ul>
             </li>
+            <!-- Dropdown end -->
             <li class="nav-item">
               <a class="nav-link" href="#">Tiendas</a>
             </li>
@@ -22,20 +38,31 @@
             </div>
           </form>
           <div class="d-flex align-items-center">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex flex-column align-items-center text-decoration-none" href="#"
+                  id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person header-icon"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="#" routerLink="/account">Mi cuenta</a></li>
+                  <li><a class="dropdown-item" href="#" (click)="logout()">Cerrar sesión</a></li>
+                </ul>
+              </li>
             <div class="text-center me-4">
-              <a href="#" class="d-flex flex-column align-items-center text-decoration-none">
+              <a (click)="goToCart()" class="position-relative d-flex flex-column align-items-center text-decoration-none"
+                style="cursor: pointer;">
                 <i class="bi bi-cart header-icon"></i>
+                <span
+                  class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                  style="top: -5px; left: 15px; height: 20px; min-width: 20px;">
+                  {{ cartItemCount }}
+                </span>
               </a>
             </div>
             <div class="text-center me-4">
               <a href="#" class="position-relative d-flex flex-column align-items-center text-decoration-none">
                 <i class="bi bi-heart header-icon"></i>
                 <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-              </a>
-            </div>
-            <div class="text-center">
-              <a href="#" class="d-flex flex-column align-items-center text-decoration-none">
-                <i class="bi bi-person-fill header-icon"></i>
               </a>
             </div>
           </div>

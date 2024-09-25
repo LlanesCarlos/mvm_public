@@ -1,0 +1,141 @@
+.checkout-steps {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-steps li {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+  position: relative;
+}
+
+.checkout-steps li.active {
+  border-bottom: 2px solid #007bff;
+}
+
+.checkout-steps .step-number {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.img-thumbnail {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
+
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav .step {
+    text-align: center;
+    padding: 10px;
+    margin-right: 10px;
+    color: #6c757d; /* Color para los pasos inactivos */
+}
+
+.nav .step .step-number {
+    display: block;
+    background-color: #e9ecef; /* Color del fondo del número */
+    color: #6c757d; /* Color del texto del número */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav .step .step-label {
+    margin-top: 8px;
+    font-size: 14px;
+    display: block;
+}
+
+.nav .step.active .step-number {
+    background-color: #0d6efd; /* Color de fondo activo */
+    color: white; /* Color del texto activo */
+}
+
+.nav .step.active .step-label {
+    color: black; /* Color de la etiqueta activa */
+}
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinear al inicio del contenedor */
+    position: relative;
+}
+
+.nav-item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -25px; /* Ajusta este valor para centrar la línea entre los pasos */
+    width: 50px; /* Ajusta este valor para controlar la longitud de la línea */
+    height: 2px;
+    background-color: #e9ecef; /* Color de la línea */
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.nav .step {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 10px;
+    color: #6c757d; /* Color para los pasos inactivos */
+}
+
+.nav .step .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9ecef; /* Color del fondo del número */
+    color: #6c757d; /* Color del texto del número */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+    z-index: 1; /* Asegura que los números estén sobre las líneas */
+}
+
+.nav .step .step-label {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.nav .step.active .step-number {
+    background-color: #0d6efd; /* Color de fondo activo */
+    color: white; /* Color del texto activo */
+}
+
+.nav .step.active .step-label {
+    color: black; /* Color de la etiqueta activa */
+}
+

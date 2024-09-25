@@ -92,3 +92,10 @@
     margin-right: 15px; /* Ajusta el espacio del toggle si es necesario */
   }
 }
+.nav-item.dropdown::marker {
+  content: none; /* Elimina el contenido del marcador antes del elemento */
+}
+
+.navbar .dropdown-toggle::after {
+    content: '' !important;
+}

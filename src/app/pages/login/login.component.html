@@ -5,17 +5,18 @@
     <app-alert></app-alert>
     <div class="login-container">
       <h2 class="text-center">Ingresá a tu cuenta</h2>
-      <form>
+      <form (ngSubmit)="login()">
         <div class="form-group">
           <label for="email" class="login-label">Email: </label>
-          <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+          <input type="email" class="form-control" id="email" [(ngModel)]="credentials.email" name="email" required>
         </div>
         <div class="form-group" style="margin-bottom: 20px;">
           <label for="password" class="login-label">Contraseña: </label>
-          <input type="password" class="form-control" [(ngModel)]="pass" name="password" id="password" required>
+          <input type="password" class="form-control" [(ngModel)]="credentials.password" name="password" id="password"
+            required>
         </div>
         <div class="text-center">
-          <button type="submit" class="btn btn-primary" (click)="login()">Iniciar Sesión</button>
+          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
         </div>
       </form>
       <br>
@@ -23,7 +24,8 @@
         <a href="#" class="text-secondary">Olvidé mi contraseña</a>
       </div>
       <div class="divider mt-4 mb-4">
-        <hr class="line"><span>O</span><hr class="line">
+        <hr class="line"><span>O</span>
+        <hr class="line">
       </div>
       <div class="text-center">
         <a href="#" class="text-secondary">Registrarme</a>
