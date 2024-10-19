@@ -74,6 +74,15 @@
         </div>
         <!-- Hero End -->
 
+        <!-- Prueba ese (hay que actualizar el private apiUrl en categories.service.ts) -->
+        <div class="row">
+            <div class="card col-md-4" style="width: 18rem;" *ngFor="let category of categories">
+                <img [src]="category.image" class="card-img-top" alt="{{ category.name }}">
+                <div class="card-body">
+                    <p class="card-text">{{ category.name }}</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Featurs Section Start -->
         <div class="container-fluid featurs py-5">
